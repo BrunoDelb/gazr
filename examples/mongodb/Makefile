@@ -1,5 +1,3 @@
-.PHONY: mongodb
-
 MONGODB_FILE=""
 MONGODB_USERNAME="my_username"
 MONGODB_PASSWORD="my_password"
@@ -12,3 +10,4 @@ mongodb:
 mongodb-export:
 	docker exec some-mongo sh -c "exec mongodump -d $(MONGODB_DB) --archive" > $(MONGODB_EXPORT_FILE)
 
+.PHONY: mongodb mongodb-export
