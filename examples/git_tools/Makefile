@@ -1,5 +1,3 @@
-.PHONE: git-tools
-
 BUILD_SOURCESDIRECTORY=$(PWD)/src
 BUILD_BINARIESDIRECTORY=$(PWD)/report
 PROJECT_PREFIX=demo_
@@ -74,3 +72,6 @@ git-sizer:
 
 git-hours:
 	@ docker run --rm -v $(PWD)/src:/code khor/git-hours
+
+.PHONY: git-cloc git-big-picture git-summary git-changelog git-log git-stats git-effort git-count git-commits
+.PHONY: git-updated-lines git-branch-date git-branch-not-merged git-repo-size git-sizer git-hours
