@@ -1,14 +1,14 @@
-.PHONE: update-version
-
-version = `date +%y.%m.%d`.$(number)
-
 update-version:
-	number=`cat ./next-version.txt`
-	echo $$(($(number) + 1)) > ./next-version.txt
+	BUILD_NUMBER=`cat ./next-version.txt`
+	echo $$(($(BUILD_NUMBER) + 1)) > ./next-version.txt
 	git add ./next-version.txt
-	git commit -m "Bump version"
+	git commit -m "Version updated"
 	git push
 
-version:
-	@echo $(version)
+get-version:
+	BUILD_NUMBER=`cat ./next-version.txt`
+	VERSION=`date +%y.%m.%d`.$(BUILD_NUMBER)
+	@echo "Build number: $(BUILD_NUMBER)"
+	@echo "Version: $(VERSION)"
 
+.PHONY: update-version get-version
